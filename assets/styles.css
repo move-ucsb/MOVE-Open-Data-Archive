@@ -1,0 +1,143 @@
+body {
+  background-color: #ffffff;
+  font-family: Avenir, "Century Gothic", sans-serif;
+  margin-top: 100px; /* Ensure space for fixed navbar */
+}
+
+.navbar-brand,
+.nav-link {
+  font-family: Avenir, "Century Gothic", sans-serif;
+}
+
+.card-title {
+  color: #07528C;
+  text-decoration: none; /* Remove underline */
+  font-weight: 500; /* Adjust font-weight */
+}
+
+.card-title a {
+  color: #07528C;
+  text-decoration: none; /* Remove underline */
+  font-weight: 500; /* Adjust font-weight */
+}
+
+.card-title a:hover {
+  text-decoration: underline; /* Show underline on hover */
+}
+
+.text-muted {
+  color: #6c757d !important;
+}
+
+.card-text {
+  font-size: 0.9rem; /* Adjust description font size */
+}
+
+.card-body {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.card-buttons {
+  display: flex;
+  justify-content: flex-start;
+  gap: 0.5rem; /* Control spacing between buttons */
+  margin-top: auto;
+}
+
+.star-rating {
+  color: #febc11; /* Gold color */
+}
+
+.star-rating .far {
+  color: #e4e5e9; /* Gray color */
+}
+
+.btn-cite {
+  background-color: #036B7D; /* Light blue color */
+  color: #fff;
+}
+
+/* Ensure code blocks have a gray background color */
+.markdown-body pre code {
+  background-color: #f6f8fa !important;
+  padding: 1em;
+  border-radius: 5px;
+}
+
+/* Adjust font-weight for keywords */
+.card-body p strong {
+  font-weight: 600;
+}
+
+/* Adjust font size and reduce spacing between paragraphs/lines for keywords */
+.card-body p {
+  margin-bottom: 0.5rem;
+}
+
+/* Set button colors */
+.btn-primary,
+.btn-primary:hover,
+.btn-primary:focus,
+.btn-primary:active {
+  background-color: #07528C;
+  border-color: #07528C;
+}
+
+.btn-light,
+.btn-secondary {
+  background-color: #DCE1E5;
+  color: #000;
+  border-color: #DCE1E5;
+}
+
+.btn-light:hover,
+.btn-secondary:hover {
+  background-color: #07528C;
+  color: #fff;
+}
+
+/* Set background color for All Tags, Date, and Rating sort dropdowns */
+.form-select {
+  background-color: #DCE1E5;
+}
+
+/* Set background color for Close button in modal */
+.modal-footer .btn-secondary {
+  background-color: #DCE1E5;
+  border-color: #DCE1E5;
+  color: #000;
+}
+
+/* Set active link color */
+.nav-link.active {
+  color: #febc11 !important;
+}
+
+/* Change cursor to pointer when hovering over the logo */
+.navbar-brand img {
+  cursor: pointer;
+}
+
+.navbar-logo {
+  cursor: pointer;
+  height: 30px;
+  margin-right: 10px;
+}
+
+/* Set color and style for the divider */
+.navbar-divider {
+  color: #ffffff;
+  margin: 0 10px 0 -2px; /* Adjust margin to move the divider left */
+  font-size: 20px;
+  line-height: 30px;
+}
+
+/* Fix navbar at the top */
+.navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+}

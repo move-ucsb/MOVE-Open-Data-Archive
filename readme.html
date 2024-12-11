@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>README - MOVE Open Data Archive</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/styles.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.3.1/styles/github.min.css">
+  <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/github-markdown-css/4.0.0/github-markdown.min.css">
+  <style>
+    .markdown-body {
+      font-family: Avenir, "Century Gothic", sans-serif !important;
+    }
+
+    .markdown-body h1,
+    .markdown-body h2,
+    .markdown-body h3,
+    .markdown-body h4,
+    .markdown-body h5,
+    .markdown-body h6,
+    .markdown-body strong {
+      font-weight: 500;
+    }
+
+    /* Table of Contents (TOC) styles */
+    .toc {
+      position: fixed;
+      top: 100px;
+      left: 20px;
+      width: 250px;
+      max-height: 80%;
+      overflow-y: auto;
+      padding: 10px;
+      border-radius: 5px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .toc ul {
+      list-style-type: none;
+      padding-left: 0;
+    }
+
+    .toc li {
+      margin-bottom: 5px;
+    }
+
+    .toc .ms-3 {
+      margin-left: 15px !important;
+    }
+
+    .toc .ms-4 {
+      margin-left: 30px !important;
+    }
+
+    .toc li.ms-3::before,
+    .toc li.ms-4::before {
+      content: "•";
+      color: #07528C;
+      margin-right: 10px;
+      font-size: 12px;
+    }
+
+    .toc a {
+      text-decoration: none;
+      color: #07528C;
+    }
+
+    .toc a:hover {
+      text-decoration: underline;
+    }
+
+    .content {
+      margin-left: 240px;
+      /* 200px (toc width) + 20px (desired gap) + 20px (toc padding) */
+    }
+  </style>
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.3.1/highlight.min.js"></script>
+</head>
+
+<body>
+  <!-- Navigation Bar -->
+  <div id="navbar-placeholder"></div>
+
+  <div class="container my-5">
+    <div class="row">
+      <div class="col-md-3">
+        <div id="toc" class="toc">
+          <!-- Table of Contents will be inserted here -->
+        </div>
+      </div>
+      <div class="col-md-9 content">
+        <div id="readme-content" class="markdown-body">
+          <!-- README content will be inserted here -->
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    async function loadReadme() {
+      const response = await fetch("README.md");
+      const readmeText = await response.text();
+      const readmeHtml = marked.parse(readmeText);
+
+      const readmeContent = document.getElementById("readme-content");
+      readmeContent.innerHTML = readmeHtml;
+
+      // Manually call highlight.js to handle code blocks
+      document.querySelectorAll('pre code').forEach((block) => {
+        hljs.highlightElement(block);
+      });
+
+      // Generate Table of Contents (TOC)
+      generateTOC();
+    }
+
+    function generateTOC() {
+      const toc = document.getElementById("toc");
+      const headings = document.querySelectorAll(".markdown-body h1, .markdown-body h2, .markdown-body h3");
+      let tocHtml = "<ul>";
+
+      headings.forEach((heading) => {
+        const id = heading.id || heading.textContent.trim().toLowerCase().replace(/\s+/g, "-");
+        heading.id = id;
+        const tagName = heading.tagName.toLowerCase();
+        const indentClass = tagName === 'h2' ? 'ms-3' : tagName === 'h3' ? 'ms-4' : '';
+        tocHtml += `<li class="${indentClass}"><a href="#${id}">${heading.textContent}</a></li>`;
+      });
+
+      tocHtml += "</ul>";
+      toc.innerHTML = tocHtml;
+    }
+
+    loadReadme();
+  </script>
+  <script src="assets/script.js"></script>
+</body>
+
+</html>
