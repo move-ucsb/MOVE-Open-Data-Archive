@@ -36,8 +36,8 @@ Once connected to the server, we can navigate the file system using the followin
   ```sh
   cd /path/to/directory
 
-  cd /home/move_lab/open_data/ # Locate the open data folder
-  cd /home/move_lab/open_data/specific_data # Locate the specific data folder
+  cd /home/movelab/open_data/ # Locate the open data folder
+  cd /home/movelab/open_data/specific_data # Locate the specific data folder
   cd .. # Move up one directory, i.e., go back to open data folder
   ```
 
@@ -46,7 +46,7 @@ Once connected to the server, we can navigate the file system using the followin
   ```sh
   mkdir new_directory
 
-  cd /home/move_lab/open_data/ # Locate the open data folder 
+  cd /home/movelab/open_data/ # Locate the open data folder 
   mkdir specific_data # Create a new data folder
   ```
 
@@ -55,7 +55,7 @@ Once connected to the server, we can navigate the file system using the followin
   ```sh
   rm -r directory_name
 
-  cd /home/move_lab/open_data/ # Locate the open data folder
+  cd /home/movelab/open_data/ # Locate the open data folder
   rm -r specific_data # Remove the specific data folder
   ```
 
@@ -75,7 +75,7 @@ To download files from the server, we can use `scp`. Open the Terminal applicati
 scp -r grit_username@128.111.100.42:/path/to/remote/file /path/to/local/directory
 
 # Download the specific data folder and save it to the 'Downloads' folder
-scp -r grit_username@128.111.100.42:/home/move_lab/open_data/specific_data /Users/username/Downloads 
+scp -r grit_username@128.111.100.42:/home/movelab/open_data/specific_data /Users/username/Downloads 
 ```
 
 Once we entered the password, the download will start.
@@ -88,5 +88,5 @@ Uploading files is similar to downloading files except we need to reverse the so
 scp -r /path/to/local/directory grit_username@128.111.100.42:/path/to/remote/file
 
 # Upload the specific data folder to the server
-scp -r /Users/username/Downloads/specific_data grit_username@128.111.100.42:/home/move_lab/open_data
+scp -r /Users/username/Downloads/specific_data grit_username@128.111.100.42:/home/movelab/open_data
 ```
